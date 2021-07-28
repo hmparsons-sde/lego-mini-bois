@@ -1,4 +1,5 @@
 ﻿using lego_mini_bois.Heads;
+using lego_mini_bois.Torsos;
 using System;
 using System.Collections.Generic;
 
@@ -43,6 +44,11 @@ namespace lego_mini_bois
                 head.SayHi();
                 head.Spin();
             }
+            var batSuitTorso = new BatSuitTorso();
+            batSuitTorso.BodyColor = LegoColor.Purple;
+            batSuitTorso.HasBatBoomerang = true;
+            batSuitTorso.HasShirt = false;
+            batSuitTorso.Donates();
         }
 
     }
