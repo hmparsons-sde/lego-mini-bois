@@ -1,5 +1,7 @@
 ﻿using lego_mini_bois.Heads;
 using lego_mini_bois.Torsos;
+using lego_mini_bois.Minifigures;
+using lego_mini_bois.Legs;
 using System;
 using System.Collections.Generic;
 
@@ -21,6 +23,7 @@ namespace lego_mini_bois
     // hit the CONTROL key and click and it will take you
     // to go back hit CONTROL key and minus key
     // CONTROL SHIFT minus moves forward
+
     class Program
     {
         static void Main(string[] args)
@@ -30,12 +33,8 @@ namespace lego_mini_bois
             workerHead.Color = LegoColor.Yellow;
 
             var batmanHead = new BatmanHead();
-            batmanHead.SayHi();
 
             var astronautHead = new AstronautHead();
-            astronautHead.SayHi();
-
-            // var weirdHead = new HeadBase();
 
             var heads = new List<HeadBase>() { astronautHead, batmanHead, workerHead };
 
@@ -44,12 +43,58 @@ namespace lego_mini_bois
                 head.SayHi();
                 head.Spin();
             }
-            var batSuitTorso = new BatSuitTorso();
-            batSuitTorso.BodyColor = LegoColor.Purple;
-            batSuitTorso.HasBatBoomerang = true;
-            batSuitTorso.HasShirt = false;
-            batSuitTorso.Donates();
-        }
 
+            var batmanTorso = new BatSuitTorso();
+            batmanTorso.BodyColor = LegoColor.Green;
+            batmanTorso.HasBatBoomerang = true;
+            batmanTorso.HasShirt = false;
+            batmanTorso.Donates();
+
+            var cowboyTorso = new CowboyTorso();
+
+            var sumoTorso = new SumoTorso();
+
+            var torsos = new List<TorsoBase>() { batmanTorso, cowboyTorso, sumoTorso };
+
+            foreach (var torso in torsos)
+            {
+                torso.Greeting();
+                torso.Wiggle();
+            }
+
+
+            var seaLeg = new SeaLeg();
+            seaLeg.AreWobbly = true;
+            seaLeg.Bottoms = Bottoms.Chaps;
+            seaLeg.NumberOfLegs = 3;
+            seaLeg.Kicks = Shoes.ShelltoeAdidas;
+
+
+            var magicLeg = new MagicLeg();
+            magicLeg.Bottoms = Bottoms.Chaps; //this is a magical moment
+            magicLeg.HasInvisibleLegs = true;
+            magicLeg.MeasuringLegs("small");
+            Console.WriteLine($"Magic legs have a length of {magicLeg.Length} inches.");
+
+            var legs = new List<LegBase>() { seaLeg, magicLeg };
+
+            foreach (var leg in legs)
+            {
+                leg.Dance();
+                leg.Walk();
+            }
+
+            Console.WriteLine("Before Bob.");
+
+
+            //var bob = new Minifigure(workerHead, cowboyTorso, new SeaLeg());
+            var bob = new Minifigure(workerHead, cowboyTorso, seaLeg);
+            bob.BuildIt();
+
+
+            Console.WriteLine("You just saw Bob do his thang!");
+            Console.ReadLine();
+
+        }
     }
 }
