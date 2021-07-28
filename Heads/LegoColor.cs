@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace lego_mini_bois.Heads
 {
@@ -13,7 +9,8 @@ namespace lego_mini_bois.Heads
         Brown,
         Gray,
         Purple,
-        Red
+        Red,
+        Green
     }
 }
 
